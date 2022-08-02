@@ -1,0 +1,47 @@
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 9rem;
+  background-color: #333;
+}
+.a,
+.pulse,
+.pulse::after,
+.pulse::before {
+  content: "";
+  display: grid;
+  grid-area: 1/1;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 #35d1e633;
+  animation: pulsing 3s linear infinite var(--s, 0s);
+}
+.pulse i {
+  font-size: 35px;
+  position: absolute;
+  padding: 7px;
+}
+.pulse {
+  width: 3rem;
+  color: #fff;
+  transition: all 0.5s ease;
+  background: #35d1e6;
+}
+.pulse::after {
+  --s: 1s;
+}
+.pulse::before {
+  --s: 2s;
+}
+.pulse:hover {
+  background-color: #35D1E633;
+  color: #ffffff99;
+}
+@keyframes pulsing {
+  to {
+    box-shadow: 0 0 0 6rem #0000;
+  }
+}
+/*# sourceMappingURL=./style.css.map */
