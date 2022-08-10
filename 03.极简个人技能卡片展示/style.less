@@ -1,0 +1,116 @@
+:root {
+    --background: #e1e1e1;
+    --color-light: rgb(82, 82, 82);
+    --color-dark: rgb(128, 128, 128);
+    --text-color-light: #888;
+}
+
+.a {
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.b{
+    font-size: 0.8rem;
+    font-weight: 400;
+    // text-transform: uppercase;
+}
+
+body {
+    background-color: var(--background);
+    overflow: hidden;
+    font-family: sans-serif;
+}
+
+.card {
+    perspective: 1000px;
+    margin: 5% auto;
+    margin-left: 500px;
+
+    .inner {
+        position: relative;
+        width: 300px;
+        height: 320px;
+        transition: transform 0.5s ease-in-out;
+        transform-style: preserve-3d;
+
+        .front {
+            position: absolute;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            height: 100%;
+            color: var(--text-color-light);
+            border-radius: 25px;
+            box-shadow: 0 0 50px 2px rgba(0, 0, 0, 0.1);
+            background: url(/03.极简个人技能卡片展示/img/3.jfif) 0 0 repeat;
+        }
+
+        .back {
+            .front;
+            transform: rotateY(180deg);
+            // 隐藏未旋转过来的背景图片
+            backface-visibility: hidden;
+        }
+
+        .banner {
+            +.profile {
+                height: 50%;
+                margin-top: -10px;
+
+                .title {
+                    .a;
+                }
+            }
+        }
+
+        .avatar {
+            position: absolute;
+            width: 6em;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            border: 5px solid var(--background);
+        }
+
+        .subtitle {
+            .a;
+            .b;
+        }
+
+        .text {
+            .a;
+            margin: 30% 8% 0 8%;
+        }
+
+        .address {
+            .a;
+            .b;
+
+            &::before{
+                content: "";
+                display: inline-block;
+                border-top: 2px solid var(--text-color-light);
+                width: 100%;
+                margin-bottom: 5px;
+            }
+        }
+
+        
+    }
+
+    &:hover .inner{
+        transform: rotateY(180deg);
+    }
+}
+
+
+
+.alignment {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

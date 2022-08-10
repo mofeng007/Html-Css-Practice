@@ -1,0 +1,111 @@
+:root {
+  --background: #e1e1e1;
+  --color-light: #525252;
+  --color-dark: #808080;
+  --text-color-light: #888;
+}
+.a {
+  margin-top: 0;
+  margin-bottom: 0;
+  text-align: center;
+}
+.b {
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+body {
+  background-color: var(--background);
+  overflow: hidden;
+  font-family: sans-serif;
+}
+.card {
+  perspective: 1000px;
+  margin: 5% auto;
+  margin-left: 500px;
+}
+.card .inner {
+  position: relative;
+  width: 300px;
+  height: 320px;
+  transition: transform 0.5s ease-in-out;
+  transform-style: preserve-3d;
+}
+.card .inner .front {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  height: 100%;
+  color: var(--text-color-light);
+  border-radius: 25px;
+  box-shadow: 0 0 50px 2px rgba(0, 0, 0, 0.1);
+  background: url(/03.极简个人技能卡片展示/img/3.jfif) 0 0 repeat;
+}
+.card .inner .back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  height: 100%;
+  color: var(--text-color-light);
+  border-radius: 25px;
+  box-shadow: 0 0 50px 2px rgba(0, 0, 0, 0.1);
+  background: url(/03.极简个人技能卡片展示/img/3.jfif) 0 0 repeat;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+}
+.card .inner .banner + .profile {
+  height: 50%;
+  margin-top: -10px;
+}
+.card .inner .banner + .profile .title {
+  margin-top: 0;
+  margin-bottom: 0;
+  text-align: center;
+}
+.card .inner .avatar {
+  position: absolute;
+  width: 6em;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 5px solid var(--background);
+}
+.card .inner .subtitle {
+  margin-top: 0;
+  margin-bottom: 0;
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+.card .inner .text {
+  margin-top: 0;
+  margin-bottom: 0;
+  text-align: center;
+  margin: 30% 8% 0 8%;
+}
+.card .inner .address {
+  margin-top: 0;
+  margin-bottom: 0;
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+.card .inner .address::before {
+  content: "";
+  display: inline-block;
+  border-top: 2px solid var(--text-color-light);
+  width: 100%;
+  margin-bottom: 5px;
+}
+.card:hover .inner {
+  transform: rotateY(180deg);
+}
+.alignment {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/*# sourceMappingURL=./style.css.map */
