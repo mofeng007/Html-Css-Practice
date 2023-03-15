@@ -1,0 +1,112 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1d1928;
+}
+body .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 350px;
+  height: 450px;
+  border-radius: 20px;
+  background-color: #4471a3;
+  box-shadow: 15px 15px 10px rgba(33, 45, 50, 0.3);
+  overflow: hidden;
+  position: relative;
+}
+body .container form {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
+}
+body .container form .tbx {
+  width: 250px;
+  height: 40px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #fff;
+  background: none;
+  color: #fff;
+  font-size: 15px;
+}
+body .container form .tbx::placeholder {
+  color: #fff;
+  font-size: 15px;
+}
+body .container form .sub {
+  width: 250px;
+  height: 40px;
+  outline: none;
+  border: 1px solid #fff;
+  border-radius: 20px;
+  letter-spacing: 5px;
+  background: none;
+  color: #fff;
+  cursor: pointer;
+  margin-top: 20px;
+}
+body .container h1 {
+  color: #ecf0f1;
+  font-size: 50px;
+  letter-spacing: 5px;
+  font-weight: 100;
+  text-shadow: 5px 5px 5px rgba(33, 45, 58, 0.3);
+  z-index: 1;
+}
+body .container .in {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: #cf455f;
+  transform: translate(-50%, -50%);
+  animation: in 0.5s ease-out forwards;
+}
+body .container .out {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 1200px;
+  height: 1200px;
+  border-radius: 50%;
+  background: #cf455f;
+  transform: translate(-50%, -50%);
+  animation: out 0.5s ease-out forwards;
+}
+@keyframes in {
+  0% {
+    width: 0;
+    height: 0;
+  }
+  100% {
+    width: 1200px;
+    height: 1200px;
+  }
+}
+@keyframes out {
+  0% {
+    width: 1200px;
+    height: 1200px;
+  }
+  100% {
+    width: 0;
+    height: 0;
+  }
+}
+/*# sourceMappingURL=./04.css.map */
