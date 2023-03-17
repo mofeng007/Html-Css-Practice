@@ -1,0 +1,89 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    // 弹性布局，让页面元素垂直加水平居中
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // 设置body高度为100%窗口高度
+    height: 100vh;
+    // 背景渐变色
+    background-image: linear-gradient(200deg,#5ee7df,#b490ca);
+    // 设置视距，添加这个属性增加卡片旋转时的立体感，值越小越夸张
+    perspective: 1000px;
+
+
+    .card{
+        // 相对定位
+        background-color: #fff;
+        position: relative;
+        height: 450px;
+        width: 300px;
+        // 圆角
+        border-radius: 30px;
+        // 鼠标移动到元素上光标变为小手
+        cursor: pointer;
+        // 盒子阴影
+        box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.1);
+        // 给父元素开启一个3D盒子属性，那么子元素沿着Y轴旋转就可以到背面去了，
+        // 这个属性是加到父元素上，但是影响的是子元素
+        transform-style:preserve-3d;
+        animation: rotate-reverse 1.2s cubic-bezier(0.66,-0.47,0.33,1.5) forwards;
+
+        &:hover{
+            // 动画，（名称，时长，第三个是贝塞尔曲线，我们可以自定义动画的运动轨迹，
+            // 让动画的运动轨迹有了很多种可能，第四个属性是当我们动画完成时的状态，一般
+            // 动画完成之后就到了0%的状态，默认值是backwards，当我们给forwards时，那么
+            // 到100%动画就会停下，不会回到0%）
+            animation: rotate 1.2s cubic-bezier(0.66,-0.47,0.33,1.5) forwards;
+        }  
+    
+    }
+}
+
+
+.front,.back{
+    // 绝对定位，子元素是绝对定位，父元素需要相对定位
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    // 弹性布局，让元素垂直陈列
+    display: flex;
+    flex-direction: column;
+    // 现在子元素垂直陈列，那么就是让子元素水平居中
+    align-items: center;
+    // 平均分配高度给每一个元素
+    justify-content: space-around;
+    font-size: 20px;
+    background-color: #fff;
+    border-radius: 30px;
+}
+
+.back{
+    // 背面卡片沿Y轴旋转180度，同时需要给父元素变成3D盒子
+    transform:rotateY(180deg);
+    backface-visibility: hidden;
+}
+
+@keyframes rotate{
+    0%{
+        transform: rotateY(0deg);
+    }
+    100%{
+        transform: rotateY(180deg);
+    }
+}
+
+@keyframes rotate-reverse{
+    0%{
+        transform: rotateY(180deg);
+    }
+    100%{
+        transform: rotateY(0deg);
+    }
+}
