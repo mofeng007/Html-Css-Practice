@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  height: 100vh;
+  background: linear-gradient(200deg, #ddd6f3, #faaca8);
+}
+body .navbar {
+  position: relative;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 50px;
+}
+body .navbar input {
+  width: 40px;
+  height: 40px;
+  opacity: 0;
+  cursor: pointer;
+}
+body .navbar input:checked ~ ul {
+  width: 350px;
+}
+body .navbar input:checked ~ span:nth-child(2) {
+  top: calc(50% - 2px);
+  background-color: #fb7299;
+  transform: rotate(-45deg);
+  transition: top 0.3s ease-in-out, transform 0.3s ease-in-out 0.3s;
+}
+body .navbar input:checked ~ span:nth-child(3) {
+  top: calc(50% - 2px);
+  background-color: #fb7299;
+  transform: rotate(45deg);
+  transition: top 0.3s ease-in-out, transform 0.3s ease-in-out 0.3s;
+}
+body .navbar span {
+  position: absolute;
+  left: 25px;
+  width: 30px;
+  height: 4px;
+  top: calc(50% - 10px);
+  border-radius: 15px;
+  background-color: #999;
+  pointer-events: none;
+  transition: transform 0.3s ease-in-out, top 0.3s ease-in-out 0.3s;
+}
+body .navbar span:nth-child(3) {
+  top: calc(50% + 6px);
+}
+body .navbar ul {
+  width: 0;
+  overflow: hidden;
+  transition: all 0.5s;
+  white-space: nowrap;
+}
+body .navbar ul li {
+  list-style: none;
+  margin: 0px 15px;
+}
+body .navbar ul li a {
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 700;
+  color: #333;
+}
+body .navbar ul li a:hover {
+  color: #fb7299;
+}
+body,
+.navbar,
+.navbar ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/*# sourceMappingURL=./06.css.map */

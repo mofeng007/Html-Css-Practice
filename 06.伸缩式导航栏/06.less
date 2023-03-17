@@ -1,0 +1,103 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    height: 100vh;
+    // 背景渐变
+    background: linear-gradient(200deg,#ddd6f3,#faaca8);
+
+    .navbar{
+        position: relative;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 50px;
+
+        input{
+            width: 40px;
+            height: 40px;
+            // 把复选框变为透明
+            opacity: 0;
+            // 鼠标变小手
+            cursor: pointer;
+
+            // 复选框选中时，选择他的兄弟元素
+            &:checked ~ ul{
+                width: 350px;
+            }
+
+            &:checked ~ span:nth-child(2){
+                top: calc(50% - 2px);
+                background-color: #fb7299;
+                transform: rotate(-45deg);
+                // 这里先执行top，然后0.3s后执行transform
+                transition: top 0.3s ease-in-out,transform 0.3s ease-in-out 0.3s;
+            }
+
+            &:checked ~ span:nth-child(3){
+                top: calc(50% - 2px);
+                background-color: #fb7299;
+                transform: rotate(45deg);
+                // 这里先执行top，然后0.3s后执行transform
+                transition: top 0.3s ease-in-out,transform 0.3s ease-in-out 0.3s;
+            }
+        }
+
+        span{
+            position: absolute;
+            left: 25px;
+            width: 30px;
+            height: 4px;
+            // 将两条线放在一起，然后单独设置第二条线的位置，calc方法可以自动计算值
+            top: calc(50% - 10px);
+            border-radius: 15px;
+            background-color: #999;
+            // 现在span覆盖着复选框，鼠标放到span上是点不到复选框的（那两条线）
+            // 下面这个属性就可以解决这个问题，鼠标放到span上也可以选中或取消
+            // 复选框
+            pointer-events: none;
+            // 收回来的过渡是相反的
+            transition: transform 0.3s ease-in-out,top 0.3s ease-in-out 0.3s;
+
+        }
+
+        // 因为第二条线在navbar这个元素的第三个位置，所以写3
+        span:nth-child(3){
+            top: calc(50% + 6px);
+        }
+
+        ul{
+            width: 0;
+            // 溢出隐藏
+            overflow: hidden;
+            // 这里加个过渡可以让展开和收起自然一点
+            transition: all 0.5s;
+            // 导航栏收起时圆是扁的，是因为文字被换行显示了，两个字竖着排列
+            // 导致盒子被撑大了，下面的属性可以解决这个问题，让文字不换行显示
+            white-space: nowrap;
+
+            li{
+                list-style: none;
+                margin: 0px 15px;
+
+                a{
+                    text-decoration: none;
+                    font-size: 20px;
+                    font-weight: 700;
+                    color: #333;
+
+                    &:hover{
+                        color: #fb7299;
+                    }
+                }
+            }
+        }
+    }
+}
+
+body,.navbar,.navbar ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
