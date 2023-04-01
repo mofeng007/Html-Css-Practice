@@ -1,0 +1,87 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // 背景径向渐变
+    background: radial-gradient(circle at center,mediumpurple,#000);
+}
+
+.heart{
+    width: 280px;
+    height: 220px;
+    display: flex;
+    justify-content: space-between;
+    // border: 1px solid red;
+
+    span{
+        // 自定义属性值
+        --c:plum;
+        --h:50%;
+        --t:25%;
+        // var函数用于插入自定义的属性值
+        background-color: var(--c);
+        width: 20px;
+        border-radius: 20px;
+        position: relative;
+        height: var(--h);
+        top: var(--t);
+        animation: beating 1s infinite;
+
+        &:nth-child(1),
+        &:nth-child(9){
+            --c:lightcoral;
+            --h:60px;
+            --t:44px;
+        }
+
+        &:nth-child(2),
+        &:nth-child(8){
+            --c:lightskyblue;
+            --h:120px;
+            --t:12px;
+        }
+
+        &:nth-child(3),
+        &:nth-child(7){
+            --c:lightgreen;
+            --h:160px;
+            --t:0px;
+        }
+
+        &:nth-child(4),
+        &:nth-child(6){
+            --c:gold;
+            --h:180px;
+            --t:16px;
+        }
+
+        &:nth-child(5){
+            --c:plum;
+            --h:188px;
+            --t:32px;
+        }
+    }
+}
+
+// 定义动画
+@keyframes beating{
+    0%,30%{
+        height: var(--h);
+        top: var(--t);
+        background-color: var(--c);
+        filter: blur(0px);
+    }
+    60%,70%{
+        height: 50%;
+        top: 25%;
+        background-color: plum;
+        filter: blur(5px);
+    }
+}
